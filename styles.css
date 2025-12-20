@@ -1,0 +1,13 @@
+/* Drop zone styled lightly but keeps UIKit look */
+.drop-zone {
+    border: 2px dashed #ccc;
+    padding: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.drop-zone.dragover {
+    background: #f8f8f8;
+    border-color: #999;
+}

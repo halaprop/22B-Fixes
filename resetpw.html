@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Upload</title>
+
+    <!-- UIKit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/css/uikit.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/js/uikit-icons.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="uk-padding-small uk-padding-remove-bottom uk-width-1-1 uk-background-muted">
+        <div class="uk-container uk-flex uk-flex-between uk-flex-middle">
+            <h3 class="uk-margin-remove">22B Fixes</h3>
+        </div>
+    </div>
+
+    <!-- Verify UI-->
+    <div class="uk-container uk-margin-top">
+    </div>
+
+    <!-- AUTH MODAL CONTAINER -->
+    <div id="auth-modal" uk-modal="bg-close: false; esc-close: false"></div>
+
+</body>
+<script type="module">
+
+    import { authUI } from "./authUI.js";
+
+    authUI.openResetPw(result => {
+        setTimeout(() => window.location.replace('/'), 100);
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Upload</title>
+
+    <!-- UIKit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/css/uikit.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/js/uikit-icons.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <style>html { visibility: hidden;} </style>
+</head>
+
+<body>
+
+    <div class="uk-padding-small uk-padding-remove-bottom uk-width-1-1">
+        <div class="uk-container uk-flex uk-flex-between uk-flex-middle">
+            <h3 class="uk-margin-remove">22B Fixes</h3>
+        </div>
+    </div>
+    <hr>
+
+    <div class="uk-container uk-margin-top">
+
+        <div class="uk-padding-small">
+            <div class="uk-grid uk-grid-small uk-flex-middle" uk-grid>
+
+                <!-- Project filter -->
+                <div class="uk-width-small">
+                    <select id="project-filter" class="uk-select uk-form-small">
+                        <option value="all">All projects</option>
+                        <option value="0">Project 0</option>
+                        <option value="1">Project 1</option>
+                        <option value="2">Project 2</option>
+                        <option value="3">Project 3</option>
+                        <option value="4">Project 4</option>
+                    </select>
+                </div>
+
+                <!-- Student search -->
+                <div class="uk-width-expand">
+                    <input id="student-filter" class="uk-input uk-form-small" type="text"
+                        placeholder="Filter by student name or ID">
+                </div>
+
+                <!-- Clear -->
+                <div>
+                    <button id="clear-filters" class="uk-button uk-button-default uk-button-small">
+                        Clear
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Admin table -->
+        <div id="admin-table-container">
+            <table class="uk-table uk-table-divider uk-table-small">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>PROJECT</th>
+                        <th>NAME</th>
+                        <th>STUDENT ID</th>
+                        <th>LINK</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="admin-table-body"></tbody>
+            </table>
+        </div>
+
+        <footer class="uk-position-bottom uk-position-fixed uk-width-1-1 uk-padding-small uk-background-muted">
+            <div class="uk-container">
+                <button id="student-btn" class="uk-margin-right uk-button uk-button-text uk-text-lowercase">
+                    Student
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===================== -->
+    <!-- Templates -->
+    <!-- ===================== -->
+
+    <!-- main submission row -->
+    <template id="submission-row-template">
+        <tr class="submission-row">
+            <td>
+                <a href="#" class="toggle-details">
+                    <span uk-icon="chevron-right"></span>
+                </a>
+            </td>
+            <td>
+                <input class="uk-checkbox submission-checkbox" type="checkbox">
+            </td>
+            <td class="uk-width-small project-number"></td>
+            <td class="uk-width-medium canvas-name"></td>
+            <td class="student-id uk-width-small"></td>
+            <td class="uk-width-medium">
+                <a href="https://example.com/very/long/url/that/keeps/going" class="uk-link-text uk-text-truncate"
+                    target="_blank" rel="noopener">
+                    open
+                </a>
+            </td>
+            <td>
+                <a href="#" class="delete-submission" uk-icon="trash"></a>
+            </td>
+        </tr>
+    </template>
+
+    <!-- details row -->
+    <template id="submission-details-template">
+        <tr class="submission-details" hidden>
+            <td colspan="6">
+                <div class="uk-padding-small">
+                    <div class="fixes-container"></div>
+                </div>
+            </td>
+        </tr>
+    </template>
+
+    <!-- fixes grouped by file -->
+    <template id="fix-file-template">
+        <div class="uk-margin-small">
+            <div><strong class="file-name"></strong></div>
+            <ul class="uk-list uk-margin-small-top"></ul>
+        </div>
+    </template>
+
+    <!-- ===================== -->
+
+    <script type="module" src="admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22B Fixes</title>
+
+    <!-- UIKit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/css/uikit.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.0/dist/js/uikit-icons.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="uk-padding-small uk-padding-remove-bottom uk-width-1-1">
+        <div class="uk-container uk-flex uk-flex-between uk-flex-middle">
+
+            <h3 class="uk-margin-remove">22B Fixes</h3>
+
+            <div class="uk-flex uk-flex-middle uk-gap-small">
+                <span id="signIn" class="uk-text-small uk-link" hidden>Sign in</span>
+                <span id="signUp" class="uk-text-small uk-link uk-margin-left" hidden>Sign up</span>
+                <span id="signOut" class="uk-text-small uk-link" hidden>Sign out</span>
+                <span id="userAvatar" class="uk-margin-left" uk-icon="icon: user" hidden></span>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+
+    <div class="uk-container uk-margin-top">
+        <div class="uk-grid-small uk-child-width-1-2@s" uk-grid uk-grid-match>
+
+            <!-- LEFT COLUMN -->
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-height-1-1">
+
+                    <div class="uk-margin-small-bottom">
+                        <select id="projectField" class="uk-select">
+                            <option value="" disabled selected>Project Number</option>
+                            <option value="0">Project 0</option>
+                            <option value="1">Project 1</option>
+                            <option value="2">Project 2</option>
+                            <option value="3">Project 3</option>
+                            <option value="4">Project 4</option>
+                        </select>
+                    </div>
+
+                    <div id="dropZone"
+                        class="drop-zone uk-flex uk-flex-column uk-flex-middle uk-flex-center uk-text-center uk-margin-small">
+                        <span uk-icon="icon: cloud-upload; ratio: 2"></span>
+                    </div>
+
+                    <input type="file" id="fileInput" hidden multiple>
+
+                    <button id="uploadBtn" class="uk-button uk-button-default uk-width-1-1 uk-margin-small-top">
+                        Browse
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-height-1-1 uk-flex uk-flex-column">
+
+                    <div class="uk-margin-small uk-flex uk-flex-between">
+                        <div class="uk-text-small uk-text-muted">Submission Date</div>
+                        <div id="sub-status-date" class="uk-text-emphasis"></div>
+                    </div>
+
+                    <div class="uk-margin-small uk-flex uk-flex-between">
+                        <div class="uk-text-small uk-text-muted">On-Time Status</div>
+                        <div id="sub-status-date-status" class="uk-text-emphasis">-</div>
+                    </div>
+
+                    <div class="uk-margin-small uk-flex uk-flex-between">
+                        <div class="uk-text-small uk-text-muted">Total Deductions</div>
+                        <div id="sub-status-deductions" class="uk-text-emphasis">-</div>
+                    </div>
+
+                    <div class="uk-margin-small uk-flex uk-flex-between">
+                        <div class="uk-text-small uk-text-muted">Points Eligible for Fix</div>
+                        <div id="sub-status-eligible" class="uk-text-emphasis">-</div>
+                    </div>
+
+                    <!-- BUTTON SECTION -->
+                    <div class="uk-margin-auto-top uk-text-center">
+                        <button id="submitBtn" class="uk-button uk-button-primary uk-width-small" disabled>
+                            <div uk-spinner="ratio: 0.5" hidden></div>
+                            <span>Submit</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TABLE -->
+        <div id="alert" class="uk-alert-warning uk-hidden" uk-alert>
+            <a href class="uk-alert-close" uk-close></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+        <hr>
+        <table class="uk-table uk-table-divider">
+            <thead>
+                <tr>
+                    <th>File</th>
+                    <th>Line</th>
+                    <th>Deduction</th>
+                    <th>Eligible</th>
+                    <th>Eligible Points</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        <footer class="uk-position-bottom uk-position-fixed uk-width-1-1 uk-padding-small uk-background-muted">
+            <div class="uk-container">
+                <button id="admin-btn" class="uk-margin-right uk-button uk-button-text uk-text-lowercase" hidden>
+                    Admin
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- preferences modal -->
+    <div id="prefs-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-width-large uk-border-rounded uk-box-shadow-large">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <h3 class="uk-modal-title uk-text-center">Student Identity</h3>
+            <form id="prefs-form" class="uk-form-stacked">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="student-name">Canvas name</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="student-name" name="canvasName" type="text"
+                            placeholder="Enter your name exactly as it appears in Canvas" required>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="student-id">Student ID</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="student-id" name="studentId" type="text" placeholder="Enter your ID"
+                            required>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <button type="submit" class="uk-button uk-button-primary uk-width-1-1">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- AUTH MODAL CONTAINER -->
+    <div id="auth-modal" uk-modal></div>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+
+</html>
