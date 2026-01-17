@@ -68,7 +68,7 @@
                         <th>PROJECT</th>
                         <th>NAME</th>
                         <th>STUDENT ID</th>
-                        <th>LINK</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -97,21 +97,12 @@
                     <span uk-icon="chevron-right"></span>
                 </a>
             </td>
-            <td>
-                <input class="uk-checkbox submission-checkbox" type="checkbox">
-            </td>
-            <td class="uk-width-small project-number"></td>
-            <td class="uk-width-medium canvas-name"></td>
-            <td class="student-id uk-width-small"></td>
-            <td class="uk-width-medium">
-                <a href="https://example.com/very/long/url/that/keeps/going" class="uk-link-text uk-text-truncate"
-                    target="_blank" rel="noopener">
-                    open
-                </a>
-            </td>
-            <td>
-                <a href="#" class="delete-submission" uk-icon="trash"></a>
-            </td>
+            <td><input class="uk-checkbox submission-checkbox" type="checkbox"></td>
+            <td class="project-number"></td>
+            <td class="canvas-name"></td>
+            <td class="student-id"></td>
+            <td class="project-link"><span uk-icon="icon: link"></span></td>
+            <td><a href="#" class="delete-submission" uk-icon="trash"></a></td>
         </tr>
     </template>
 
