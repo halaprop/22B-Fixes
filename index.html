@@ -21,9 +21,6 @@
 
             <div class="uk-flex uk-flex-middle">
                 <h3 class="uk-margin-remove">22B Fixes</h3>
-                <button class="uk-button uk-button-text uk-margin-small-left" uk-toggle="target: #help-modal">
-                    <span uk-icon="icon: question; ratio: 1.2"></span>
-                </button>
             </div>
 
             <div class="uk-flex uk-flex-middle uk-gap-small">
@@ -38,6 +35,9 @@
     <hr>
 
     <div class="uk-container uk-margin-top">
+        <button class="uk-button uk-button-secondary uk-margin-small-bottom" uk-toggle="target: #help-modal">
+            How to Submit Project Fixes
+        </button>
         <div class="uk-grid-small uk-child-width-1-2@s" uk-grid uk-grid-match>
 
             <!-- LEFT COLUMN -->
@@ -165,10 +165,10 @@
     <div id="auth-modal" uk-modal></div>
 
     <!-- Help Modal -->
-    <div id="help-modal" uk-modal>
+    <div class="uk-modal-container" id="help-modal" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-width-large">
             <button class="uk-modal-close-default" type="button" uk-close></button>
-            <h2 class="uk-modal-title">How to Submit Project Fixes</h2>
+            <hr class="uk-margin-top">
     
             <div class="uk-margin">
                 <p>This application helps you submit project fixes. Follow these steps carefully:</p>
