@@ -19,7 +19,12 @@
     <div class="uk-padding-small uk-padding-remove-bottom uk-width-1-1">
         <div class="uk-container uk-flex uk-flex-between uk-flex-middle">
 
-            <h3 class="uk-margin-remove">22B Fixes</h3>
+            <div class="uk-flex uk-flex-middle">
+                <h3 class="uk-margin-remove">22B Fixes</h3>
+                <button class="uk-button uk-button-text uk-margin-small-left" uk-toggle="target: #help-modal">
+                    <span uk-icon="icon: question; ratio: 1.2"></span>
+                </button>
+            </div>
 
             <div class="uk-flex uk-flex-middle uk-gap-small">
                 <span id="signIn" class="uk-text-small uk-link" hidden>Sign in</span>
@@ -158,6 +163,67 @@
 
     <!-- AUTH MODAL CONTAINER -->
     <div id="auth-modal" uk-modal></div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-width-large">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <h2 class="uk-modal-title">How to Submit Project Fixes</h2>
+    
+            <div class="uk-margin">
+                <p>This application helps you submit project fixes. Follow these steps carefully:</p>
+            </div>
+    
+            <div class="uk-margin">
+                <h4>Procedure:</h4>
+                <ol class="uk-list uk-list-decimal uk-text-small">
+                    <li class="uk-margin-small-bottom">
+                        <strong>Find the issues:</strong> Look for comments in your code marked with
+                        <code class="uk-text-monospace">// DJH:</code>
+                    </li>
+                    <li class="uk-margin-small-bottom">
+                        <strong>Make the fixes:</strong> Address the issues indicated using the
+                        <em>zyBooks IDE</em>
+                    </li>
+                    <li class="uk-margin-small-bottom">
+                        <strong>Retest carefully:</strong> Make sure your fixes work correctly
+                    </li>
+                    <li class="uk-margin-small-bottom">
+                        <strong>Annotate your fixes:</strong> Mark each issue as fixed with
+                        <code class="uk-text-monospace">// YOUR INITIALS: fixed</code>, with an optional
+                        brief comment about the issue. Place this on the same line or the next line after
+                        the original comment. <strong>One "fixed" comment per issue comment.</strong>
+                    </li>
+                    <li class="uk-margin-small-bottom">
+                        <strong>Download:</strong> Download the source files you changed from zyBooks
+                    </li>
+                    <li class="uk-margin-small-bottom">
+                        <strong>Select your project:</strong> Choose the project number you're fixing
+                        from the dropdown menu on this app
+                    </li>
+                    <li class="uk-margin-small-bottom">
+                        <strong>Upload here:</strong> Upload only your
+                        <code class="uk-text-monospace">.cpp</code> and
+                        <code class="uk-text-monospace">.h</code> files to this app
+                    </li>
+                    <li class="uk-margin-small-bottom">
+                        <strong>Submit:</strong> Review the detected fixes and click Submit
+                    </li>
+                </ol>
+            </div>
+    
+            <div class="uk-margin">
+                <h4>Please Note:</h4>
+                <ul class="uk-list uk-list-bullet uk-text-small">
+                    <li>Only fixes that are <strong>properly annotated</strong> and submitted
+                        <strong>on time</strong> will be reviewed
+                    </li>
+                    <li><strong>Fixes that break the code might generate negative credit</strong></li>
+                    <li>Late fixes may be considered for credit at the end of the quarter</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="app.js"></script>
 
