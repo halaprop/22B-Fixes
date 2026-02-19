@@ -28,47 +28,57 @@
     <div class="uk-container uk-margin-top">
 
         <div class="uk-padding-small">
-            <div class="uk-grid uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-padding-small">
+                <div class="uk-grid uk-grid-small uk-flex-middle" uk-grid>
 
-                <!-- Project filter -->
-                <div class="uk-width-small">
-                    <select id="project-filter" class="uk-select uk-form-small">
-                        <option value="all">All projects</option>
-                        <option value="0">Project 0</option>
-                        <option value="1">Project 1</option>
-                        <option value="2">Project 2</option>
-                        <option value="3">Project 3</option>
-                        <option value="4">Project 4</option>
-                    </select>
-                </div>
-
-                <!-- Student search -->
-                <div class="uk-width-expand">
-                    <input id="student-filter" class="uk-input uk-form-small" type="text"
+                    <!-- Project filter -->
+                    <div class="uk-width-small">
+                        <select id="project-filter" class="uk-select uk-form-small">
+                            <option value="all">All projects</option>
+                            <option value="0">Project 0</option>
+                            <option value="1">Project 1</option>
+                            <option value="2">Project 2</option>
+                            <option value="3">Project 3</option>
+                            <option value="4">Project 4</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Student search -->
+                    <div class="uk-width-expand">
+                        <input id="student-filter" class="uk-input uk-form-small" type="text"
                         placeholder="Filter by student name or ID">
-                </div>
+                    </div>
+                    
+                    <!-- Hide Graded Rows -->
+                    <div class="uk-width-auto">
+                        <label class="uk-flex uk-flex-middle uk-text-small" style="gap: 6px; white-space: nowrap;">
+                            <input id="hide-completed" class="uk-checkbox" type="checkbox">
+                            Hide Graded
+                        </label>
+                    </div>
 
-                <!-- Clear -->
-                <div>
-                    <button id="clear-filters" class="uk-button uk-button-default uk-button-small">
-                        Clear
-                    </button>
-                </div>
+                    <!-- Clear -->
+                    <div>
+                        <button id="clear-filters" class="uk-button uk-button-default uk-button-small">
+                            Clear
+                        </button>
+                    </div>
 
+                </div>
             </div>
         </div>
 
         <!-- Admin table -->
-        <div id="admin-table-container">
+        <div id="admin-table-container" class="uk-margin-xlarge-bottom">
             <table class="uk-table uk-table-divider uk-table-small">
                 <thead>
                     <tr>
                         <th></th>
-                        <th></th>
                         <th>PROJECT</th>
+                        <th></th>
                         <th>NAME</th>
                         <th>STUDENT ID</th>
-                        <th></th>
+                        <th>GRADED</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -97,11 +107,11 @@
                     <span uk-icon="chevron-right"></span>
                 </a>
             </td>
-            <td><input class="uk-checkbox submission-checkbox" type="checkbox"></td>
             <td class="project-number"></td>
+            <td class="project-link"><span uk-icon="icon: link"></span></td>
             <td class="canvas-name"></td>
             <td class="student-id"></td>
-            <td class="project-link"><span uk-icon="icon: link"></span></td>
+            <td><input class="uk-checkbox submission-checkbox" type="checkbox"></td>
             <td><a href="#" class="delete-submission" uk-icon="trash"></a></td>
         </tr>
     </template>
@@ -127,7 +137,14 @@
 
     <!-- ===================== -->
 
+    <div id="loading-overlay" uk-spinner="ratio: 2" hidden
+        style="position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center;background: rgba(255,255,255,0.6);">
+    </div>
+
+    <!-- ===================== -->
+
     <script type="module" src="admin.js"></script>
+
 </body>
 
 </html>
